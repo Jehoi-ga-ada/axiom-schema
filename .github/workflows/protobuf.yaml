@@ -28,11 +28,11 @@ jobs:
       - uses: bufbuild/buf-breaking-action@v1
         if: github.event_name == 'pull_request'
         with:
-          against: 'https://github.com/${{ github.repository }}.git#branch=main'
+          against: 'https://github.com/${{ github.repository }}.git#branch=master'
 
       # 4. Push to BSR: Only happens on merge to main
       - name: Push to BSR
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: bufbuild/buf-push-action@v1
         with:
           buf_token: ${{ secrets.BUF_TOKEN }}
