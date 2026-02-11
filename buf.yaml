@@ -1,6 +1,10 @@
 version: v2
 modules:
   - path: proto
+    name: buf.build/axiom-org/axiom-schema 
 lint:
   use:
     - DEFAULT
+breaking:
+  use:
+    - FILE # Enforces wire-compatibility checks
