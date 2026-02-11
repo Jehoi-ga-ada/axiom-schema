@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package axiom.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/Jehoi-ga-ada/axiom-schema/gen/go/v1";
+
+message Event {
+    bytes id = 1;
+    string event_type = 2;
+    google.protobuf.Timestamp timestsamp = 3;
+    bytes raw_body = 4;
+}
