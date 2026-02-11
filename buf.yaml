@@ -4,7 +4,7 @@ modules:
     name: buf.build/axiom-org/axiom-schema 
 lint:
   use:
-    - DEFAULT
+    - STANDARD
 breaking:
   use:
     - FILE # Enforces wire-compatibility checks
