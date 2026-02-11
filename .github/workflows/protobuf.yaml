@@ -1,39 +1,37 @@
-name: Generate Protobuf
+name: Buf CI
 on:
   push:
-    paths:
-      - 'proto/**'
-      - 'buf.gen.yaml'
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
-  generate:
+  buf:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Install Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: 'stable'
-
-      - name: Install Go Protoc Plugins
-        run: |
-          go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
-          go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
-
-      - name: Setup Buf
-        uses: bufbuild/buf-action@v1
+      # 1. Setup Buf environment
+      - uses: bufbuild/buf-action@v1
         with:
           setup_only: true
 
-      - name: Generate Code
-        run: buf generate
+      # 2. Linting: Enforce style rules
+      - uses: bufbuild/buf-lint-action@v1
 
-      - name: Commit and Push Changes
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add gen/
-          git commit -m "chore: auto-generate protobuf stubs" || echo "No changes to commit"
-          git push
+      # 3. Breaking Change Detection: Check against the 'main' branch
+      - uses: bufbuild/buf-breaking-action@v1
+        if: github.event_name == 'pull_request'
+        with:
+          against: 'https://github.com/${{ github.repository }}.git#branch=main'
+
+      # 4. Push to BSR: Only happens on merge to main
+      - name: Push to BSR
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: bufbuild/buf-push-action@v1
+        with:
+          buf_token: ${{ secrets.BUF_TOKEN }}
