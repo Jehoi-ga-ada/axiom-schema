@@ -9,6 +9,6 @@ option go_package = "github.com/Jehoi-ga-ada/axiom-schema/gen/go/v1";
 message Event {
     bytes id = 1;
     string event_type = 2;
-    google.protobuf.Timestamp timestsamp = 3;
+    google.protobuf.Timestamp timestamp = 3;
     bytes raw_body = 4;
 }

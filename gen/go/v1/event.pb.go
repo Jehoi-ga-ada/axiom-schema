@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        (unknown)
-// source: axiom/schema/v1/event.proto
+// source: v1/event.proto
 
 package v1
 
@@ -34,7 +34,7 @@ type Event struct {
 
 func (x *Event) Reset() {
 	*x = Event{}
-	mi := &file_axiom_schema_v1_event_proto_msgTypes[0]
+	mi := &file_v1_event_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -46,7 +46,7 @@ func (x *Event) String() string {
 func (*Event) ProtoMessage() {}
 
 func (x *Event) ProtoReflect() protoreflect.Message {
-	mi := &file_axiom_schema_v1_event_proto_msgTypes[0]
+	mi := &file_v1_event_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -59,7 +59,7 @@ func (x *Event) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Event.ProtoReflect.Descriptor instead.
 func (*Event) Descriptor() ([]byte, []int) {
-	return file_axiom_schema_v1_event_proto_rawDescGZIP(), []int{0}
+	return file_v1_event_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Event) GetId() []byte {
@@ -90,11 +90,11 @@ func (x *Event) GetRawBody() []byte {
 	return nil
 }
 
-var File_axiom_schema_v1_event_proto protoreflect.FileDescriptor
+var File_v1_event_proto protoreflect.FileDescriptor
 
-const file_axiom_schema_v1_event_proto_rawDesc = "" +
+const file_v1_event_proto_rawDesc = "" +
 	"\n" +
-	"\x1baxiom/schema/v1/event.proto\x12\x0faxiom.schema.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8d\x01\n" +
+	"\x0ev1/event.proto\x12\x02v1\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8d\x01\n" +
 	"\x05Event\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\fR\x02id\x12\x1d\n" +
 	"\n" +
@@ -102,29 +102,29 @@ const file_axiom_schema_v1_event_proto_rawDesc = "" +
 	"\n" +
 	"timestsamp\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
 	"timestsamp\x12\x19\n" +
-	"\braw_body\x18\x04 \x01(\fR\arawBodyB\xaf\x01\n" +
-	"\x13com.axiom.schema.v1B\n" +
-	"EventProtoP\x01Z.github.com/Jehoi-ga-ada/axiom-schema/gen/go/v1\xa2\x02\x03ASX\xaa\x02\x0fAxiom.Schema.V1\xca\x02\x0fAxiom\\Schema\\V1\xe2\x02\x1bAxiom\\Schema\\V1\\GPBMetadata\xea\x02\x11Axiom::Schema::V1b\x06proto3"
+	"\braw_body\x18\x04 \x01(\fR\arawBodyBl\n" +
+	"\x06com.v1B\n" +
+	"EventProtoP\x01Z.github.com/Jehoi-ga-ada/axiom-schema/gen/go/v1\xa2\x02\x03VXX\xaa\x02\x02V1\xca\x02\x02V1\xe2\x02\x0eV1\\GPBMetadata\xea\x02\x02V1b\x06proto3"
 
 var (
-	file_axiom_schema_v1_event_proto_rawDescOnce sync.Once
-	file_axiom_schema_v1_event_proto_rawDescData []byte
+	file_v1_event_proto_rawDescOnce sync.Once
+	file_v1_event_proto_rawDescData []byte
 )
 
-func file_axiom_schema_v1_event_proto_rawDescGZIP() []byte {
-	file_axiom_schema_v1_event_proto_rawDescOnce.Do(func() {
-		file_axiom_schema_v1_event_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_axiom_schema_v1_event_proto_rawDesc), len(file_axiom_schema_v1_event_proto_rawDesc)))
+func file_v1_event_proto_rawDescGZIP() []byte {
+	file_v1_event_proto_rawDescOnce.Do(func() {
+		file_v1_event_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_v1_event_proto_rawDesc), len(file_v1_event_proto_rawDesc)))
 	})
-	return file_axiom_schema_v1_event_proto_rawDescData
+	return file_v1_event_proto_rawDescData
 }
 
-var file_axiom_schema_v1_event_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
-var file_axiom_schema_v1_event_proto_goTypes = []any{
-	(*Event)(nil),                 // 0: axiom.schema.v1.Event
+var file_v1_event_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_v1_event_proto_goTypes = []any{
+	(*Event)(nil),                 // 0: v1.Event
 	(*timestamppb.Timestamp)(nil), // 1: google.protobuf.Timestamp
 }
-var file_axiom_schema_v1_event_proto_depIdxs = []int32{
-	1, // 0: axiom.schema.v1.Event.timestsamp:type_name -> google.protobuf.Timestamp
+var file_v1_event_proto_depIdxs = []int32{
+	1, // 0: v1.Event.timestsamp:type_name -> google.protobuf.Timestamp
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -132,26 +132,26 @@ var file_axiom_schema_v1_event_proto_depIdxs = []int32{
 	0, // [0:1] is the sub-list for field type_name
 }
 
-func init() { file_axiom_schema_v1_event_proto_init() }
-func file_axiom_schema_v1_event_proto_init() {
-	if File_axiom_schema_v1_event_proto != nil {
+func init() { file_v1_event_proto_init() }
+func file_v1_event_proto_init() {
+	if File_v1_event_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_axiom_schema_v1_event_proto_rawDesc), len(file_axiom_schema_v1_event_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_v1_event_proto_rawDesc), len(file_v1_event_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_axiom_schema_v1_event_proto_goTypes,
-		DependencyIndexes: file_axiom_schema_v1_event_proto_depIdxs,
-		MessageInfos:      file_axiom_schema_v1_event_proto_msgTypes,
+		GoTypes:           file_v1_event_proto_goTypes,
+		DependencyIndexes: file_v1_event_proto_depIdxs,
+		MessageInfos:      file_v1_event_proto_msgTypes,
 	}.Build()
-	File_axiom_schema_v1_event_proto = out.File
-	file_axiom_schema_v1_event_proto_goTypes = nil
-	file_axiom_schema_v1_event_proto_depIdxs = nil
+	File_v1_event_proto = out.File
+	file_v1_event_proto_goTypes = nil
+	file_v1_event_proto_depIdxs = nil
 }
