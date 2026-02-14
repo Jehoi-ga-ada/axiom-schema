@@ -24,10 +24,11 @@ const (
 
 type Event struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            []byte                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	EventType     string                 `protobuf:"bytes,2,opt,name=event_type,json=eventType,proto3" json:"event_type,omitempty"`
-	Timestsamp    *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestsamp,proto3" json:"timestsamp,omitempty"`
-	RawBody       []byte                 `protobuf:"bytes,4,opt,name=raw_body,json=rawBody,proto3" json:"raw_body,omitempty"`
+	TenantId      string                 `protobuf:"bytes,1,opt,name=tenant_id,json=tenantId,proto3" json:"tenant_id,omitempty"`
+	Id            []byte                 `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
+	EventType     string                 `protobuf:"bytes,3,opt,name=event_type,json=eventType,proto3" json:"event_type,omitempty"`
+	Timestamp     *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	RawBody       []byte                 `protobuf:"bytes,5,opt,name=raw_body,json=rawBody,proto3" json:"raw_body,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -62,6 +63,13 @@ func (*Event) Descriptor() ([]byte, []int) {
 	return file_v1_event_proto_rawDescGZIP(), []int{0}
 }
 
+func (x *Event) GetTenantId() string {
+	if x != nil {
+		return x.TenantId
+	}
+	return ""
+}
+
 func (x *Event) GetId() []byte {
 	if x != nil {
 		return x.Id
@@ -76,9 +84,9 @@ func (x *Event) GetEventType() string {
 	return ""
 }
 
-func (x *Event) GetTimestsamp() *timestamppb.Timestamp {
+func (x *Event) GetTimestamp() *timestamppb.Timestamp {
 	if x != nil {
-		return x.Timestsamp
+		return x.Timestamp
 	}
 	return nil
 }
@@ -94,15 +102,14 @@ var File_v1_event_proto protoreflect.FileDescriptor
 
 const file_v1_event_proto_rawDesc = "" +
 	"\n" +
-	"\x0ev1/event.proto\x12\x02v1\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8d\x01\n" +
-	"\x05Event\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\fR\x02id\x12\x1d\n" +
+	"\x0ev1/event.proto\x12\x02v1\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa8\x01\n" +
+	"\x05Event\x12\x1b\n" +
+	"\ttenant_id\x18\x01 \x01(\tR\btenantId\x12\x0e\n" +
+	"\x02id\x18\x02 \x01(\fR\x02id\x12\x1d\n" +
 	"\n" +
-	"event_type\x18\x02 \x01(\tR\teventType\x12:\n" +
-	"\n" +
-	"timestsamp\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
-	"timestsamp\x12\x19\n" +
-	"\braw_body\x18\x04 \x01(\fR\arawBodyBl\n" +
+	"event_type\x18\x03 \x01(\tR\teventType\x128\n" +
+	"\ttimestamp\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\x12\x19\n" +
+	"\braw_body\x18\x05 \x01(\fR\arawBodyBl\n" +
 	"\x06com.v1B\n" +
 	"EventProtoP\x01Z.github.com/Jehoi-ga-ada/axiom-schema/gen/go/v1\xa2\x02\x03VXX\xaa\x02\x02V1\xca\x02\x02V1\xe2\x02\x0eV1\\GPBMetadata\xea\x02\x02V1b\x06proto3"
 
@@ -124,7 +131,7 @@ var file_v1_event_proto_goTypes = []any{
 	(*timestamppb.Timestamp)(nil), // 1: google.protobuf.Timestamp
 }
 var file_v1_event_proto_depIdxs = []int32{
-	1, // 0: v1.Event.timestsamp:type_name -> google.protobuf.Timestamp
+	1, // 0: v1.Event.timestamp:type_name -> google.protobuf.Timestamp
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
